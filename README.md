@@ -43,7 +43,7 @@ The locked three-city benchmark does not show a consistent advantage for GCN-GRU
 | Chicago | 0.0070 | **0.0117** | 0.0106 | 0.0098 | Random Forest |
 | Miami | 0.0447 | 0.0526 | **0.0710** | 0.0644 | LSTM |
 
-Values are held-out **Average Precision (AP)** scores, reported in the study as AUC-PR. The authoritative Chicago LSTM value is **0.0106**. One occurrence of **0.1060** in the thesis benchmark table is inconsistent with the thesis discussion, conclusion, application figure, and locked benchmark output, and is treated here as a typographical error. AUC-PR is the primary metric because the target is severely imbalanced. Scores should be interpreted relative to each city's positive-class prevalence and experimental setting, not compared as if the cities were interchangeable.
+Values are held-out **Average Precision (AP)** scores, reported in the study as AUC-PR.Values are held-out **Average Precision (AP)** scores, reported in the study as AUC-PR. AUC-PR is the primary metric because the target is severely imbalanced. Scores should be interpreted relative to each city's positive-class prevalence and experimental setting, not compared as if the cities were interchangeable.GraphSAGE was evaluated only as a supporting alternative graph-aggregation operator in the Iowa C2 native-rural experiment. Under that configuration, it did not outperform Random Forest, LSTM, or the tested ST-GNN. It is therefore not included in the locked three-city urban benchmark. AUC-PR is the primary metric because the target is severely imbalanced. Scores should be interpreted relative to each city's positive-class prevalence and experimental setting, not compared as if the cities were interchangeable.
 
 The broader evidence indicates that:
 
@@ -87,13 +87,20 @@ The study integrates topology search, repeated neural runs, paired Wilcoxon test
 
 The locked urban benchmark does not support a consistent GCN-GRU advantage. That finding is scientifically useful: it shows that geographic proximity inferred from accident events did not consistently substitute for verified road topology under the tested conditions. The main implication is that **spatial representation should be validated before greater graph-model complexity is expected to improve prediction**.
 
-### 6. A reproducible research artefact
+### 6. Sparse-output engineering safeguard
+
+Fine spatial partitions created node-specific training targets that sometimes contained only one observed class. Standard binary Logistic Regression and Random Forest estimators cannot fit a decision boundary for such outputs.
+
+The SafeNodeClassifier wrapper checks each node target before training. When both classes are present, it fits the requested estimator normally. When only one class is present, it records that class and returns a constant, probability-compatible output instead of attempting an invalid model fit.
+This safeguard allows the complete multi-output baseline experiment to run without synthesizing positive observations or concealing sparsity-related failures. It is an engineering and reproducibility contribution, not a statistical solution to limited minority-class evidence.
+
+### 7. A reproducible research artefact
 
 The contribution includes the complete analytical artefact rather than only a trained model: proxy construction, preprocessing, graph generation, tensorization, baseline comparison, held-out evaluation, statistical testing, sensitivity analysis, artifact traceability, and a Streamlit interface for historical replay and clearly labelled synthetic demonstration.
 
 ### Contribution boundary
 
-The contribution is **not** a novel graph-convolution operator, a verified secondary-crash detector, a causal traffic-propagation model, or a deployment-ready warning system. The novelty lies in the controlled evaluation of what can and cannot be learned from accident event streams when labels and topology are incomplete.
+The contribution is not a novel graph-neural-network architecture, a verified secondary-crash detector, a causal traffic-propagation model, or a deployment-ready warning system. Its scientific value lies in the controlled evaluation of target construction, event-derived topology, baseline performance, spatial sensitivity, and the limits of graph learning when labels and road structure are incomplete. The SafeNodeClassifier is presented separately as an engineering safeguard rather than as architectural novelty.
 
 ## Analytical workflow
 

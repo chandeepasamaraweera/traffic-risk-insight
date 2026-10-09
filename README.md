@@ -265,6 +265,8 @@ Extended Abstract: https://www.researchgate.net/publication/408624558_Event-deri
 
 The research uses the **US Accidents** dataset developed by Sobhan Moosavi and collaborators and distributed through Kaggle. Dataset access and use remain subject to the terms and citation requirements of the original provider. Raw national data are not included in this repository.
 
+Source - https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents
+
 
 
 

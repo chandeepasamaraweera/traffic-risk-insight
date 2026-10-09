@@ -1,0 +1,54 @@
+{
+  "city": "Chicago",
+  "state": "IL",
+  "seed": 42,
+  "champion_nodes": 100,
+  "champion_radius_mi": 2.0,
+  "champion_k_neighbors": 8,
+  "seq_len": 4,
+  "features": [
+    "Total_Accidents",
+    "Mean_Severity",
+    "Mean_Distance",
+    "Mean_Humidity"
+  ],
+  "utm_epsg": 32616,
+  "n_raw_events": 31036,
+  "stpc_positive_events": 8356,
+  "event_stpc_prevalence": 0.26923572625338316,
+  "window_target_prevalence_train": 0.0013221552362665534,
+  "window_target_prevalence_val": 0.0014141527935862541,
+  "window_target_prevalence_test": 0.0008910557953640819,
+  "input_shape": [
+    4,
+    100,
+    4
+  ],
+  "output_shape": [
+    100
+  ],
+  "models": [
+    "LogisticRegression",
+    "RandomForest",
+    "LSTM_Blind",
+    "STGNN_StaticKNN"
+  ],
+  "warning": "Single-seed Chicago champion-topology saved-model run. STPC-proxy risk scores are not verified causal secondary-crash predictions.",
+  "pos_weight": 755.3408430232558,
+  "model_comparison_csv": "/content/drive/MyDrive/model_output/Chicago_Champion_SEED42_AllModels/chicago_champion_model_comparison_seed42.csv",
+  "thresholds": {
+    "LogisticRegression": 0.004354509990662336,
+    "RandomForest": 0.36349472403526306,
+    "LSTM_Blind": 0.7023212313652039,
+    "STGNN_StaticKNN": 0.6018291711807251,
+    "selection_rule": "Threshold selected on validation scores to satisfy recall >= 0.70 where possible.",
+    "warning": "Thresholds are validation-derived. Test set was not used for threshold selection."
+  },
+  "single_seed_warning": "This is a single-seed saved-model run for later inference/replay. It does not replace the original repeated-run statistical benchmark.",
+  "hourly_feature_store_pickle": "chicago_hourly_feature_store.pkl",
+  "hourly_feature_store_csv_gz": "chicago_hourly_feature_store.csv.gz",
+  "window_index": "chicago_window_index.csv",
+  "region_metadata": "chicago_region_metadata.csv",
+  "date_time_replay_enabled": true,
+  "date_time_replay_note": "Streamlit can reconstruct historical 4-hour input windows from chicago_hourly_feature_store.pkl and chicago_window_index.csv. Predictions are STPC-proxy risk scores, not verified causal secondary-crash predictions."
+}

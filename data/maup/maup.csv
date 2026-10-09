@@ -1,0 +1,5 @@
+﻿city,kmeans_runs,kmeans_cv_percent,h3_auc_pr,h3_percentile,interpretation
+Miami,20,3.40,0.1222,100,Spatial unit design materially affects model performance; H3 exceeds KMeans distribution in this output
+Chicago,20,6.85,0.0308,100,Zonation variation is non-trivial and supports the representation-quality argument
+Indianapolis,20,16.72,0.0145,100,High CV indicates stronger sensitivity to zonation choice
+Iowa,20,12.26,0.0925,100,Rural/domain-style experiment shows representation sensitivity outside dense urban cases

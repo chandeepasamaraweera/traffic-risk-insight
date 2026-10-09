@@ -1,0 +1,6 @@
+﻿city,N,radius,k,validation_auc_pr,precision_at_70_recall,f1,notes
+Miami,100,2.0,5,0.0745,0.0550,0.1020,Champion topology
+Chicago,100,2.0,8,0.0156,0.0099,0.0195,Champion topology
+Los Angeles,100,2.0,3,0.0000,0.0000,0.0000,Reported paper champion; validation metrics not currently available in source summary
+Indianapolis,100,2.0,8,0.0140,0.0000,0.0000,Supporting dashboard evidence
+Iowa C2,50,15.0,3,0.0654,0.0000,0.0000,Exploratory rural/domain-transfer evidence

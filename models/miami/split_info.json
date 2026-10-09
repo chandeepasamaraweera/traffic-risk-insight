@@ -1,0 +1,10 @@
+{
+  "n_samples_total": 59439,
+  "train_samples": 41603,
+  "val_samples": 8912,
+  "test_samples": 8916,
+  "train_end_index": 41603,
+  "val_start_index": 41607,
+  "val_end_index": 50519,
+  "test_start_index": 50523
+}

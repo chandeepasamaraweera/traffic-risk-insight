@@ -1,0 +1,13 @@
+city,model,auc_pr,notes
+Los Angeles,Logistic Regression,0.0214,Linear tabular baseline
+Los Angeles,Random Forest,0.0332,Best model for Los Angeles
+Los Angeles,LSTM,0.0262,Adjacency-free temporal baseline
+Los Angeles,GCN-GRU,0.025,Topology-aware graph model
+Chicago,Logistic Regression,0.007,Linear tabular baseline
+Chicago,Random Forest,0.0117,Best model for Chicago
+Chicago,LSTM,0.0106,Adjacency-free temporal baseline
+Chicago,GCN-GRU,0.0098,Topology-aware graph model
+Miami,Logistic Regression,0.0447,Linear tabular baseline
+Miami,Random Forest,0.0526,Nonlinear tabular baseline
+Miami,LSTM,0.071,Best model for Miami
+Miami,GCN-GRU,0.0644,Topology-aware graph model

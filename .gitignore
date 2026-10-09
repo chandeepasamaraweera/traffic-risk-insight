@@ -1,0 +1,81 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Secrets and credentials
+.streamlit/secrets.toml
+.env
+.env.*
+!.env.example
+kaggle.json
+credentials.json
+token.json
+*.pem
+*.key
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Raw and licensed datasets
+data/raw/
+data/downloads/
+US_Accidents*.csv
+*Historical_September_US_Accidents.csv
+
+# Large research artifacts
+**/*hourly_feature_store*
+**/*test_predictions*
+**/X_train.npy
+**/X_val.npy
+**/X_test.npy
+**/y_train.npy
+**/y_val.npy
+**/y_test.npy
+**/random_forest*.joblib
+**/random_forest*.pkl
+**/logistic_regression*.joblib
+**/logistic_regression*.pkl
+
+# Generated synthetic outputs
+**/synthetic/
+**/*synthetic_input.csv
+**/*stgnn_predictions.csv
+
+# Temporary and generated files
+*.tmp
+*.cache
+*.log
+build/
+dist/
+*.egg-info/
+
+# Research drafts and private review material
+thesis-support/
+supervisor-comments/
+drafts/
+
+# Temporary Office files
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# Required compact historical replay packages
+!models/chicago/X_test.npy
+!models/chicago/y_test.npy
+!models/miami/X_test.npy
+!models/miami/y_test.npy

@@ -1,0 +1,57 @@
+{
+  "city": "Miami",
+  "state": "FL",
+  "seed": 42,
+  "champion_nodes": 100,
+  "champion_radius_mi": 2.0,
+  "champion_k_neighbors": 5,
+  "seq_len": 4,
+  "features": [
+    "Total_Accidents",
+    "Mean_Severity",
+    "Mean_Distance",
+    "Mean_Humidity"
+  ],
+  "models": [
+    "LogisticRegression",
+    "RandomForest",
+    "LSTM_Blind",
+    "STGNN_StaticKNN"
+  ],
+  "warning": "Single-seed Florida-only rebuild under the Miami champion topology. Not full 10-seed statistical reproduction. STPC proxy is not causal secondary-crash proof.",
+  "utm_epsg": 32617,
+  "n_raw_miami_events": 156414,
+  "stpc_positive_events": 83128,
+  "event_stpc_prevalence": 0.5314613781375068,
+  "window_target_prevalence_train": 0.004448958206921816,
+  "window_target_prevalence_val": 0.015675494447350502,
+  "window_target_prevalence_test": 0.01136159710586071,
+  "input_shape": [
+    4,
+    100,
+    4
+  ],
+  "output_shape": [
+    100
+  ],
+  "pos_weight": 223.77173267059268,
+  "model_comparison_csv": "/content/drive/MyDrive/model_output/Miami_Champion_SEED42_FL_ONLY_AllModels/miami_champion_model_comparison_seed42.csv",
+  "thresholds": {
+    "LogisticRegression": 0.00810313317924738,
+    "RandomForest": 0.3400203585624695,
+    "LSTM_Blind": 0.8054913282394409,
+    "STGNN_StaticKNN": 0.781390368938446,
+    "selection_rule": "Threshold selected on validation scores to satisfy recall >= 0.70 where possible.",
+    "warning": "Thresholds are validation-derived. Test set was not used for threshold selection."
+  },
+  "single_seed_warning": "This is a single-seed saved-model run for later inference/demo. It does not replace the original repeated-run statistical benchmark.",
+  "hourly_feature_store_pickle": "miami_hourly_feature_store.pkl",
+  "hourly_feature_store_csv_gz": "miami_hourly_feature_store.csv.gz",
+  "window_index": "miami_window_index.csv",
+  "region_metadata": "miami_region_metadata.csv",
+  "geographic_filter": "City == Miami AND State == FL",
+  "geographic_quality_check": "All retained events and all exported centroids passed broad Miami coordinate QA bounds.",
+  "clean_rebuild": true,
+  "date_time_replay_enabled": true,
+  "date_time_replay_note": "Streamlit can reconstruct historical 4-hour input windows from miami_hourly_feature_store.pkl and miami_window_index.csv. Predictions are STPC-proxy risk scores, not verified causal secondary-crash predictions."
+}

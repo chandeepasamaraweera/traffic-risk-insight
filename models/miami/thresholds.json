@@ -1,0 +1,8 @@
+{
+  "LogisticRegression": 0.00810313317924738,
+  "RandomForest": 0.3400203585624695,
+  "LSTM_Blind": 0.8054913282394409,
+  "STGNN_StaticKNN": 0.781390368938446,
+  "selection_rule": "Threshold selected on validation scores to satisfy recall >= 0.70 where possible.",
+  "warning": "Thresholds are validation-derived. Test set was not used for threshold selection."
+}
